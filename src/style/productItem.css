@@ -1,0 +1,136 @@
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: var(--max-width);
+  margin: auto;
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+  padding: 20px;
+}
+
+.product-item {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  width: 100%;
+  max-width: 326px;
+}
+
+.product-item.out{
+  pointer-events:  none;
+}
+
+.product-item:hover {
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+
+.product-image {
+  width: 100%;
+  /* max-width: 330px; */
+  height: 308px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.product-details {
+  padding: 16px 0px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+}
+
+.add-to-cart-button {
+  background-color: var(--primary);
+  color: var(--white);
+  fill: var(--white);
+  width: 42px;
+  height: 42px;
+  border-radius: 42px;
+  position: absolute;
+  top: calc(-42px / 2);
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.product-details h1 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 160%;
+  text-align: left;
+  color: #1d1f22;
+}
+
+.product-details h2 {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 160%;
+  display: flex;
+  align-items: left;
+  color: #8d8f9a;
+}
+
+@media screen and (max-width: 900px) {
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: var(--max-width);
+    margin: auto;
+    grid-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product-image {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: var(--max-width);
+    margin: auto;
+    grid-gap: 30px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 220px;
+  }
+}
+
+
+.stock{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.637);
+}
+
+.stock *{
+  color: #8d8f9a;
+}

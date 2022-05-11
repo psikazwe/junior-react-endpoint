@@ -1,0 +1,351 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0px 30px;
+  height: var(--nav-height);
+  background: var(--white);
+}
+
+nav .nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+nav .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: var(--nav-height);
+}
+nav .links ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+nav .links ul a {
+  height: inherit;
+}
+
+nav .links ul li {
+  padding: 0px 16px;
+  border-bottom: solid 2px transparent;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+nav .links ul li:hover {
+  color: var(--primary);
+}
+
+nav .links ul li.active {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+nav .site {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .site img {
+  height: 28.62px;
+}
+
+nav .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  height: inherit;
+}
+
+nav .currency,
+nav .cart {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: inherit;
+}
+
+nav .currency .button-block,
+nav .cart .button-block {
+  display: flex;
+  align-items: center;
+  height: 29px;
+  min-width: 18px;
+  cursor: pointer;
+}
+
+/* Currency dropdown  */
+.currency-dropdown{
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 20px;
+  background-color: var(--white);
+  min-width: 60px;
+  height: max-content;
+  max-height: calc(100vh - (var(--nav-height) * 3));
+  overflow-y: auto;
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+  padding: 10px 20px;
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+.currency-dropdown.active{
+  top: var(--nav-height);
+  opacity: 1;
+  pointer-events: visible;
+  list-style: none;
+}
+
+.currency-dropdown .currency{
+  display: grid;
+  grid-template-columns: 15px auto;
+  grid-gap: 10px;
+  padding: 5px 0px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.currency:hover{
+  color: var(--primary);
+}
+/* Cart Style */
+
+.void {
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 8;
+  background: rgba(57, 55, 72, 0.22);
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0s ease;
+}
+.void.active {
+  opacity: 1;
+  pointer-events: visible;
+}
+.cart .meta {
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  top: -10px;
+  left: -10px;
+  position: relative;
+}
+
+.cart-dropdown {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 20px;
+  background-color: var(--white);
+  width: 325px;
+  height: max-content;
+  max-height: calc(100vh - (var(--nav-height) * 3));
+  overflow-y: auto;
+  cursor: default;
+  opacity: 0;
+  pointer-events: none;
+  padding: 20px;
+  animation: dropdown var(--speed) linear forwards;
+}
+@keyframes dropdown {
+  from{
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+  }
+  to{
+    top: var(--nav-height);
+    opacity: 1;
+    pointer-events: visible;
+  }
+}
+
+.cart .flex {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.cart-header h3 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.empty {
+  font-weight: 700;
+  font-size: 18px;
+  padding: 30px 0px 10px 0px;
+  color: #ccc;
+}
+
+.cart-item {
+  min-height: 140px;
+  padding: 20px 0px;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 105px;
+}
+
+.cart-dropdown .cart-item *{
+  font-size: 9pt !important;
+}
+
+.cart .cart-item{
+  min-height: 220px;
+  grid-template-columns: 1fr 200px;
+  grid-gap: 40px;
+  border-top: solid 1px var(--disabled);
+}
+.cart .cart-item:last-of-type{
+  border-bottom: solid 1px var(--disabled);
+}
+.cart .item-image{
+  width: 200px;
+  overflow: hidden;
+}
+
+.cart-item-details {
+  /* display: flex;
+  flex-direction: column;
+  gap: 10px; */
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.cart-item-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cart-item-row.name h2 {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+}
+.cart-item-row.price{
+  align-items: center;
+}
+
+.cart-item-row.price h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+.cart-item-row.name h2 strong{
+  font-weight: 600;
+}
+
+.cart-item-row.size {
+  align-items: flex-end;
+}
+
+.cart-item-button-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.cart-item-button {
+  display: grid;
+  place-items: center;
+  position: relative;
+  min-width: 24px;
+  height: 24px;
+  padding: 0px 5px;
+  border: 1px solid #1d1f22;
+  background-color: var(--white);
+}
+
+.cart-item-button.color{
+  border: none;
+  box-shadow: 0px 0px 0px 1px white, 0px 0px 0px 2px white;
+}
+.cart-item-button.color.active{
+  border: none;
+  box-shadow: 0px 0px 0px 1px white, 0px 0px 0px 2px var(--primary);
+}
+
+.cart-item-button.active{
+  color: var(--white);
+  background-color: var(--black);
+  border-color: var(--black);
+}
+
+.cart-item-button:active{
+  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.cart-item-button:disabled {
+  border-color: var(--disabled);
+}
+
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+  font-size: 16px;
+}
+.cart-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+
+.item-image img {
+  width: 100%;
+}
+
+.header {
+  margin: auto;
+  max-width: var(--max-width);
+  height: calc(var(--nav-height) * 3);
+  display: flex;
+  align-items: center;
+}
+.header * {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 62.7px;
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 1200px) {
+  .currency-dropdown{
+      right: calc((100vw - var(--max-width)) / 2);
+  }
+  .cart-dropdown {
+    right: calc((100vw - var(--max-width)) / 2);
+  }
+}
